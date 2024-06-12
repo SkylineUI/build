@@ -851,13 +851,6 @@ function lunch()
     # Note this is the string "release", not the value of the variable.
     export TARGET_BUILD_TYPE=release
 
-    local prebuilt_kernel=$(get_build_var TARGET_PREBUILT_KERNEL)
-    if [ -z "$prebuilt_kernel" ]; then
-      export INLINE_KERNEL_BUILDING=true
-    else
-      unset INLINE_KERNEL_BUILDING
-    fi
-
     if ! check_product $product
     then
         # if we can't find a product, try to grab it off the YAAP GitHub
